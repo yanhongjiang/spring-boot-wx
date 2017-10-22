@@ -5,6 +5,9 @@ import net.sf.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 百度翻译实现对象
+ */
 public class TransApi {
     private static final String TRANS_API_HOST = "http://api.fanyi.baidu.com/api/trans/vip/translate";
 

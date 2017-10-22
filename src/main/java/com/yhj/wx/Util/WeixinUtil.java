@@ -66,6 +66,8 @@ public class WeixinUtil {
 	private static final String BD_APP_ID ="20171021000089956";
 	//百度账号的秘钥
 	private static final String BD_SECURITY_KEY ="2iiIX_7CuhsceFqYolQm";
+	//获取微信CODE
+	private static final String GET_OPENID_URL = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc5d25b23f0cf5b9e&redirect_uri=http://yanhj23.imwork.net:30684/advise/toIndexAdvise&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
 	/**
 	 * get请求
 	 * @param url
@@ -257,7 +259,7 @@ public class WeixinUtil {
 		ViewButton button21 = new ViewButton();
 		button21.setName("view菜单");
 		button21.setType("view");
-		button21.setUrl("http://www.baidu.com");
+		button21.setUrl("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc5d25b23f0cf5b9e&redirect_uri=http%3a%2f%2fyhj.tunnel.qydev.com%2fadvise%2ftoIndexAdvise&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect");
 
 		ClickButton button31 = new ClickButton();
 		button31.setName("扫码事件");
@@ -287,11 +289,11 @@ public class WeixinUtil {
 		return result;
 	}
 
-	public static JSONObject queryMenu(String token) throws ParseException, IOException{
+	/*public static JSONObject queryMenu(String token) throws ParseException, IOException{
 		String url = QUERY_MENU_URL.replace("ACCESS_TOKEN", token);
 		JSONObject jsonObject = doGetStr(url);
 		return jsonObject;
-	}
+	}*/
 
 	public static int deleteMenu(String token) throws ParseException, IOException{
 		String url = DELETE_MENU_URL.replace("ACCESS_TOKEN", token);
@@ -303,6 +305,13 @@ public class WeixinUtil {
 		return result;
 	}
 
+	/**
+	 * 百度翻译
+	 * @param source
+	 * @return
+	 * @throws ParseException
+	 * @throws IOException
+	 */
 	public static String translate(String source) throws ParseException, IOException{
 		TransApi api = new TransApi(BD_APP_ID, BD_SECURITY_KEY);
 		//结果语音
@@ -348,15 +357,5 @@ public class WeixinUtil {
 		return dstBuff.toString();
 	}
 
-	public static String translateFull(String source) throws ParseException, IOException{
-		String url = "http://openapi.baidu.com/public/2.0/bmt/translate?client_id=mMlyQp8aGeYLkDxf5GtKbTmD&q=KEYWORD&from=auto&to=auto";
-		url = url.replace("KEYWORD", URLEncoder.encode(source, "UTF-8"));
-		JSONObject jsonObject = doGetStr(url);
-		StringBuffer dst = new StringBuffer();
-		List<Map> list = (List<Map>) jsonObject.get("trans_result");
-		for(Map map : list){
-			dst.append(map.get("dst"));
-		}
-		return dst.toString();
-	}
+
 }

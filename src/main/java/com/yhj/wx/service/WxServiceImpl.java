@@ -59,7 +59,11 @@ public class WxServiceImpl implements WxService {
                     message = MessageUtil.initNewsMessage(toUserName, fromUserName);
                 } else if ("3".equals(content)) {
                     message = MessageUtil.initText(toUserName, fromUserName, MessageUtil.threeMenu());
-                } else if ("?".equals(content) || "？".equals(content)) {
+                }else if ("4".equals(content)) {
+                    message = MessageUtil.initImageMessage(toUserName, fromUserName );
+                } else if ("5".equals(content)) {
+
+                }else if ("?".equals(content) || "？".equals(content)) {
                     message = MessageUtil.initText(toUserName, fromUserName, MessageUtil.menuText());
                 } else if (content.startsWith("翻译")) {
                     String word = content.replaceAll("^翻译", "").trim();

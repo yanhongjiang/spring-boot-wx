@@ -237,11 +237,12 @@ public class MessageUtil {
         NewsMessage newsMessage = new NewsMessage();
 
         News news = new News();
-        news.setTitle("慕课网介绍");
-        news.setDescription("慕课网是垂直的互联网IT技能免费学习网站。以独家视频教程、在线编程工具、学习计划、问答社区为核心特色。在这里，你可以找到最好的互联网技术牛人，也可以通过免费的在线公开视频课程学习国内领先的互联网IT技术。慕课网课程涵盖前端开发、PHP、Html5、Android、iOS、Swift等IT前沿技术语言，包括基础课程、实用案例、高级分享三大类型，适合不同阶段的学习人群。");
-        news.setPicUrl("http://zapper.tunnel.mobi/Weixin/image/imooc.jpg");
-        news.setUrl("www.imooc.com");
-
+        news.setTitle("个人公众号开发");
+        news.setDescription("本公众号正处于开发阶段，现在已完成的功能有，文本回复，图文回复，图片回退，音乐回复，还有在线翻译功能。回复功能暂时都是回复同一条数据，后期增加动态返回数据。现在相对比较完整的是翻译功能，你可以进行英文翻译成中文，中文翻译成英文，也支持日语的翻译。由于系统默认中文翻译为英文如果需要将中文翻译成日文的话，可以在中文后面添加'JP'字符串，这样后台将会帮你把中文翻译成日文并返回给你。");
+        news.setPicUrl(ImageUtil.PROJECT_ROOT_IMAGE_URL+"/2.jpg");
+       // news.setUrl("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc5d25b23f0cf5b9e&redirect_uri=http%3a%2f%2fyhj.tunnel.qydev.com%2fadvise%2ftoIndexAdvise&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect");
+        //news.setUrl("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc5d25b23f0cf5b9e&redirect_uri=http://yanhj23.imwork.net:30684/advise/toIndexAdvise&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect");
+        news.setUrl(AuthorizeUtil.getSnsapiBaseURL("/advise/toIndexAdvise"));
         newsList.add(news);
 
         newsMessage.setToUserName(fromUserName);
@@ -264,7 +265,7 @@ public class MessageUtil {
     public static String initImageMessage(String toUserName,String fromUserName){
         String message = null;
         Image image = new Image();
-        image.setMediaId("JTH8vBl0zDRlrrn2bBnMleySuHjVbMhyAo0U2x7kQyd1ciydhhsVPONbnRrKGp8m");
+        image.setMediaId("h3qvx2UpXdHplzPwxgQV_r6566YuiJjBsfW5qoDbC69_S7RdnMydhizT4F1UQk35");
         ImageMessage imageMessage = new ImageMessage();
         imageMessage.setFromUserName(toUserName);
         imageMessage.setToUserName(fromUserName);
@@ -285,10 +286,10 @@ public class MessageUtil {
         String message = null;
         Music music = new Music();
         music.setThumbMediaId("WsHCQr1ftJQwmGUGhCP8gZ13a77XVg5Ah_uHPHVEAQuRE5FEjn-DsZJzFZqZFeFk");
-        music.setTitle("see you again");
-        music.setDescription("速7片尾曲");
-        music.setMusicUrl("http://zapper.tunnel.mobi/Weixin/resource/See You Again.mp3");
-        music.setHQMusicUrl("http://zapper.tunnel.mobi/Weixin/resource/See You Again.mp3");
+        music.setTitle("爱的故事上集");
+        music.setDescription("");
+        music.setMusicUrl("http://yhj.tunnel.qydev.com/resource/love.mp3");
+        music.setHQMusicUrl("http://yhj.tunnel.qydev.com/resource/love.mp3");
 
         MusicMessage musicMessage = new MusicMessage();
         musicMessage.setFromUserName(toUserName);

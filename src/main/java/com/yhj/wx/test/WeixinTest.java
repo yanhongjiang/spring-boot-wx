@@ -13,12 +13,12 @@ public class WeixinTest {
 			AccessToken token = WeixinUtil.getAccessToken();
 			System.out.println("票据"+token.getToken());
 			System.out.println("有效时间"+token.getExpiresIn());
-			//String menu = JSONObject.fromObject(WeixinUtil.initMenu()).toString();
+			String menu = JSONObject.fromObject(WeixinUtil.initMenu()).toString();
 			//WeixinUtil.createMenu(token.getToken(),menu);
-			//String path = "D:/imooc.jpg";
-			//String mediaId = WeixinUtil.upload(path, token.getToken(), "thumb");
+			//String path = "D:\\2.jpg";
+			//String mediaId = WeixinUtil.upload(path, token.getToken(), "image");
 			//System.out.println(mediaId);
-			
+			//WeixinUtil.getCode();
 			//String result = WeixinUtil.translate("my name is laobi");
 			//String result = WeixinUtil.translateFull("");
 			//System.out.println(result);

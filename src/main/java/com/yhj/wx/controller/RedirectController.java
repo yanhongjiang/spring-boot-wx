@@ -51,8 +51,8 @@ public class RedirectController {
             String REDIRECT_URI = "http://yhj.tunnel.qydev.com/url";
             String SCOPE = "snsapi_userinfo";
 
-            String getCodeUrl = UserInfoUtil.getCode(APPID, REDIRECT_URI, SCOPE);
-            logger.info("第一步:用户授权, get Code URL:{}", getCodeUrl);
+            //String getCodeUrl = UserInfoUtil.getCode(APPID, REDIRECT_URI, SCOPE);
+            //logger.info("第一步:用户授权, get Code URL:{}", getCodeUrl);
 
             // 替换字符串，获得请求access token URL
             String tokenUrl = UserInfoUtil.getWebAccess(APPID, SECRET, CODE);
